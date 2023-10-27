@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tural
-  Date: 10/25/2023
-  Time: 4:29 PM
-  To change this template use File | Settings | File Templates.
---%>
-
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,11 +16,13 @@
     </h2>
 </div>
 <div style="align-items: center">
+
+<%-- we can use as many script tags as we want, the scope of variables is global
+and shared between the tags within the JSP file --%>
     <%
         String path = request.getServletPath();
         String action = request.getAttribute("action").toString();
     %>
-<%--    <% System.out.println(action);%>--%>
 
     <form action="<%=action%>" method="post">
         <table style="border: 1px; padding: 5px">

@@ -1,14 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page
-        import="java.util.List" %>
-<%@ page import="com.booklet.bookmanager.model.Book" %><%--<%@ page import="static jdk.internal.org.jline.reader.impl.LineReaderImpl.CompletionType.List" %>--%>
-<%--
-  Created by IntelliJ IDEA.
-  User: tural
-  Date: 10/25/2023
-  Time: 4:29 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.booklet.bookmanager.model.Book" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -40,10 +32,10 @@
             <th>Price</th>
             <th>Actions</th>
         </tr>
-<%--<% List bookList = (ArrayList) request.getAttribute("listBook"); %>--%>
+
         <% List bookList = (ArrayList) request.getAttribute("listBook");
         for (int i = 0; i < bookList.size(); i++){%>
-
+        <%-- the parent <tr> element is wrapped within the for loop block --%>
         <tr>
             <td><%= ((Book)bookList.get(i)).getId() %></td>
             <td><%= ((Book)bookList.get(i)).getTitle() %></td>
@@ -54,8 +46,8 @@
                 <a href="/delete?id=<%= ((Book)bookList.get(i)).getId() %>">Delete</a>
             </td>
         </tr>
-
         <%}%>
+
     </table>
 </div>
 </body>

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ControllerServlet extends HttpServlet {
+public class ListServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private BookDAO bookDAO;
@@ -30,6 +30,7 @@ public class ControllerServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getServletPath();
+        System.out.println("ACTION: " + action);
 
         try {
             switch (action) {
@@ -61,13 +62,13 @@ public class ControllerServlet extends HttpServlet {
         List<Book> listBook = bookDAO.listAllBooks();
 
         request.setAttribute("listBook", listBook);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
         dispatcher.forward(request, response);
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("action", "insert");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookForm.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("form.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -77,7 +78,7 @@ public class ControllerServlet extends HttpServlet {
 
         request.setAttribute("book", existingBook);
         request.setAttribute("action", "update");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookForm.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("form.jsp");
         dispatcher.forward(request, response);
     }
 

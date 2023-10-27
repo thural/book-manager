@@ -4,6 +4,10 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
 
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>list</welcome-file>-->
+<!--    </welcome-file-list>-->
+
     <context-param>
         <param-name>jdbcURL</param-name>
         <param-value>jdbc:mysql://localhost:3306/bookworm</param-value>
@@ -20,12 +24,19 @@
     </context-param>
 
     <servlet>
-        <servlet-name>ControllerServlet</servlet-name>
-        <servlet-class>com.booklet.bookmanager.ControllerServlet</servlet-class>
+        <servlet-name>ListServlet</servlet-name>
+        <servlet-class>com.booklet.bookmanager.ListServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-name>ListServlet</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>com.booklet.bookmanager.MainServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
