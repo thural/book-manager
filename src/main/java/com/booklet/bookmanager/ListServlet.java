@@ -109,7 +109,6 @@ public class ListServlet extends HttpServlet {
         Book book = new Book(id);
         bookDAO.deleteBook(book);
         response.sendRedirect("list");
-
     }
 }
 

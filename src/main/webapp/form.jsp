@@ -8,10 +8,9 @@
     <title>Book Store</title>
 </head>
 <body>
-<div style="display: flex; justify-content: center; align-items: center">
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
     <h1>Books Management</h1>
     <h2>
-        <a href="/new">Add New Book</a>
         <a href="/list">List All Books</a>
     </h2>
 </div>
@@ -29,27 +28,27 @@ and shared between the tags within the JSP file --%>
             <caption>
                 <h2> <%= action.equals("update") ? "Edit Book" : "Add New Book" %> </h2>
             </caption>
-            <input type="hidden" name="id" value='${requestScope.book.getId()}'/>
+            <input type="hidden" name="id" value=${requestScope.book.getId()}>
             <tr>
                 <th>Title:</th>
                 <td>
-                    <input type="text" name="title" size="45" value='${requestScope.book.price}'/>
+                    <input type="text" name="title" size="45" value=${requestScope.book.getTitle()}>
                 </td>
             </tr>
             <tr>
                 <th>Author:</th>
                 <td>
-                    <input type="text" name="author" size="45" value=${requestScope.book.author}/>
+                    <input type="text" name="author" size="45" value=${requestScope.book.getAuthor()}>
                 </td>
             </tr>
             <tr>
                 <th>Price:</th>
                 <td>
-                    <input type="text" name="price" size="5" value=${requestScope.book.price}/>
+                    <input type="text" name="price" size="5" value=${requestScope.book.getPrice()}>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="align-items: center"><input type="submit" value="Save"/></td>
+                <td colspan="2" style="align-items: center"><input type="submit" value="Save"></td>
             </tr>
         </table>
     </form>

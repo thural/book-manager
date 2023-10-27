@@ -15,11 +15,10 @@
     </style>
 </head>
 <body>
-<div style="text-align: center;">
+<div style="display:flex; text-align: center; flex-direction: column">
     <h1>Books Management</h1>
     <h2>
         <a href="/new">Add New Book</a>
-        <a href="/list">List All Books</a>
     </h2>
 </div>
 <div style="display:flex; justify-content:center; align-items: center">
