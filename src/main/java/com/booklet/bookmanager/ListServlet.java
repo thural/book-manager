@@ -18,10 +18,7 @@ public class ListServlet extends HttpServlet {
     private BookDAO bookDAO;
 
     public void init() {
-        String jdbcURL = getServletContext().getInitParameter("jdbcURL");
-        String jdbcUsername = getServletContext().getInitParameter("jdbcUsername");
-        String jdbcPassword = getServletContext().getInitParameter("jdbcPassword");
-        bookDAO = new BookDAO(jdbcURL, jdbcUsername, jdbcPassword);
+        bookDAO = BookDAO.getInstance();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
